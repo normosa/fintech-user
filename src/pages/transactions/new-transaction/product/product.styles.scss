@@ -1,0 +1,82 @@
+.new-order {
+    .product {
+        display: flex;
+        flex-direction: column;
+        max-width: 900px;
+        .body {
+            display: flex;
+            flex-direction: column;
+            .row {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 4px;
+
+                .col {
+                    background: #fff;
+                    padding: 20px;
+                    box-shadow: 1px rgb(0, 0, 0 / 50%);
+                    box-sizing: border-box;
+                }
+                .col:first-child {
+                    border-radius: 5px 0 0 5px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    flex-grow: 1;
+                    img {
+                        height: 60px;
+                        margin: 0 10px;
+                    }
+                    > div {
+                        h4 {
+                            color: #000;
+                            line-height: 30px;
+                        }
+                        p {
+                            margin-bottom: 5px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .col:nth-child(2) {
+                    flex-basis: 120px;
+                    margin-left: 1px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    input {
+                        background: white;
+                        border: 1px solid #ededed;
+                        font-size: 16px;
+                        padding: 7px 6px;
+                        width: 100%;
+                        border-radius: 3px;
+                        box-sizing: border-box;
+                    }
+                    input:focus {
+                        outline: none;
+                    }
+                }
+                .col:nth-child(3),
+                .col:nth-child(4) {
+                    flex-basis: 140px;
+                    margin-left: 1px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .col:nth-child(3) {
+                    strong {
+                        color: #000;
+                    }
+                }
+                .col:nth-child(4) {
+                    border-radius: 0 5px 5px 0;
+                    color: #f37a37;
+                }
+            }
+        }
+    }
+}

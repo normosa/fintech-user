@@ -1,0 +1,72 @@
+.new-order {
+    .header {
+        display: flex;
+        flex-direction: row;
+        max-width: 900px;
+        margin: 10px 0 5px 0;
+        label {
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            margin-left: 1px;
+            opacity: 0.7;
+        }
+        label:first-child {
+            text-align: left;
+            flex-grow: 1;
+            margin-left: 0;
+        }
+        label:nth-child(2) {
+            width: 120px;
+        }
+        label:nth-child(3),
+        label:nth-child(4) {
+            width: 140px;
+        }
+    }
+    .total {
+        display: flex;
+        flex-direction: row;
+        max-width: 900px;
+        margin: 10px 0 5px 0;
+        justify-content: flex-end;
+        strong {
+            padding: 0 20px;
+            color: #f37a37;
+            font-size: 18px;
+        }
+    }
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        max-width: 900px;
+        justify-content: flex-end;
+        padding: 10px;
+        margin: 10px 0;
+        button {
+            text-transform: uppercase;
+            font-size: 15px;
+            line-height: 35px;
+            border: none;
+            font-weight: 400;
+            cursor: pointer;
+            width: 180px;
+            font-weight: bold;
+        }
+        button:first-child {
+            background-color: #fff;
+            color: #F37737;
+            margin-right: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 80, 133, 0.15);
+        }
+        button:last-child {
+            background-color: #F37737;
+            color: #fff;
+            box-shadow: 0px 10px 30px rgba(0, 80, 133, 0.15);
+        }
+        button:focus {
+            outline: none;
+        }
+    }
+}

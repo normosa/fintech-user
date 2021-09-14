@@ -1,0 +1,48 @@
+form {
+  .form-input {
+    margin-bottom: 10px;
+  }
+  input,
+  label,
+  select {
+    display: block;
+    color: #403f3f;
+  }
+  input,
+  select,
+  textarea {
+    background: white;
+    border: 1px solid #020f22;
+    font-size: 16px;
+    padding: 7px 6px;
+    width: 100%;
+    border-radius: 3px;
+    box-sizing: border-box;
+
+    &.error {
+      border: 1px solid #c02;
+    }
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+  }
+  span.error {
+    color: red;
+    line-height: 25px;
+    font-size: 15px;
+  }
+}
+@media (min-width: 700px) {
+  form {
+    .fl-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .col-50 {
+        flex-basis: 48%;
+      }
+    }
+  }
+}

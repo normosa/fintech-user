@@ -1,0 +1,25 @@
+.dialog {
+    position: relative;
+    .shade {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        background-color: #4CAF50;
+        opacity: .5;
+        z-index: 1;
+    }
+    > div:last-child {
+        z-index: 2;
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

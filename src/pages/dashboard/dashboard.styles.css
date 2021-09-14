@@ -1,0 +1,62 @@
+.dashboard .cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+.dashboard .cards .card {
+  background: #fff;
+  padding: 0;
+  border-radius: 5px;
+  color: #37474f;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+  height: 100px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+}
+.dashboard .cards .card p {
+  line-height: 100px;
+  text-align: center;
+  font-weight: 500;
+}
+.dashboard .cards .card strong {
+  font-weight: 500;
+  display: block;
+}
+.dashboard .cards .card > div:first-child > img {
+  width: 32px;
+  height: 32px;
+  margin: 34px auto;
+  display: block;
+}
+.dashboard .cards .card > div:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.dashboard .cards .card > div:last-child {
+  padding: 20px 15px;
+}
+.dashboard .cards .card.program > div:first-child {
+  background-color: #4e73df;
+}
+.dashboard .cards .card.applications > div:first-child {
+  background-color: #1cc88a;
+}
+.dashboard .cards .card.points > div:first-child {
+  background-color: #d98d37;
+}
+.dashboard .cards .card.payments > div:first-child {
+  background-color: #e74a3b;
+}
+.dashboard .cards .card.membership > div:first-child {
+  background-color: #36b9cc;
+}
+.dashboard .cards .card.referrals > div:first-child {
+  background-color: #f6c23e;
+}
+@media (min-width: 1000px) {
+  .dashboard .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

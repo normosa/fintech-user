@@ -1,0 +1,28 @@
+.filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    max-width: 100% !important;
+    > .wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        div {
+            padding: 0 5px;
+        }
+        select {
+            min-width: 200px;
+        }
+        button {
+            background-color: var(--secondary-dark);
+            text-transform: capitalize;
+            font-size: 15px;
+            line-height: 35px;
+            border: none !important;
+            color: var(--text-light);
+            font-weight: 400;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    }
+}

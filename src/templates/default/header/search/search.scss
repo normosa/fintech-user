@@ -1,0 +1,30 @@
+header {
+    .search {
+      padding: 17.5px;
+      position: relative;
+      background-color: #fff;
+      box-sizing: border-box;
+      flex-grow: 1;
+  
+      input {
+        border: 1px solid #F3F3F3;
+        height: 35px;
+        padding: 5px 30px 5px 5px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        width: 100%;
+        background-color: #F3F3F3;
+      }
+  
+      input:focus {
+        outline: none;
+      }
+  
+      img {
+        position: absolute;
+        height: 20px;
+        top: 25px;
+        right: 30px;
+      }
+    }
+  }

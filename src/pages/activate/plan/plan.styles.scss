@@ -1,0 +1,56 @@
+section.activate {
+    .plan {
+        .payment {
+            padding: 20px;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0.125rem 0.25rem #eeeeee;
+            h4 {
+                font-weight: 600;
+                font-family: "DM Sans Regular";
+                font-size: 24px;
+            }
+            > div {
+                display: flex;
+                flex-direction: row;
+            }
+            iframe {
+                border: 0;
+                height: 250px;
+                width: 250px;
+            }
+            p:last-child {
+                color: red;
+                text-align: center;
+            }
+        }
+        div.signup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            button {
+                text-transform: capitalize;
+                font-size: 15px;
+                line-height: 35px;
+                color: var(--secondary-dark);
+                font-weight: 400;
+                cursor: pointer;
+                width: 100%;
+                max-width: 220px;
+                border-radius: 5px;
+                background-color: #fff;
+                border: 1px solid var(--secondary-dark);
+            }
+
+            button:focus {
+                outline: none;
+            }
+            p {
+                font-size: 18px;
+                line-height: 40px;
+            }
+        }
+    }
+}

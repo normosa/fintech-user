@@ -1,0 +1,89 @@
+section.activate {
+    background: #f6f6f6;
+
+    h3 {
+        font-size: 16px;
+        font-weight: normal;
+        font-family: "DM Sans Regular";
+        font-size: 34px;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    > div .container {
+        max-width: 600px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+
+    header {
+        margin: 10px auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: transparent;
+        h1 {
+            text-align: center;
+            font-weight: 500;
+            align-items: center;
+            font-family: "DM Sans Bold";
+            font-size: 17px;
+            color: #020e23;
+        }
+        img {
+            height: 48px;
+            margin-right: 20px;
+        }
+    }
+    footer {
+        padding: 20px 0;
+        margin: 10px auto;
+        ul {
+            list-style-type: none;
+            list-style: none;
+            border-bottom: 1px solid #bdc4c9;
+            padding: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: center;
+            li {
+                margin: 0 auto;
+                a {
+                    color: var(--secondary-dark);
+                    font-size: 14px;
+                    text-decoration: none;
+                }
+            }
+        }
+        p {
+            line-height: 40px;
+            font-size: 13px;
+            text-align: center;
+            color: #868686;
+        }
+    }
+}
+@media (min-width: 700px) {
+    section.activate {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        > div {
+            flex-basis: 50%;
+            height: inherit;
+        }
+
+        > div:last-child {
+            background: url(../../assets/images/auth-bg.jpg) no-repeat;
+            background-size: cover;
+        }
+    }
+}

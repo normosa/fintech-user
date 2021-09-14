@@ -1,0 +1,32 @@
+section.activate {
+    .login {
+        div.signup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            button {
+                text-transform: capitalize;
+                font-size: 15px;
+                line-height: 35px;
+                color: var(--secondary-dark);
+                font-weight: 400;
+                cursor: pointer;
+                width: 100%;
+                max-width: 220px;
+                border-radius: 5px;
+                background-color: #fff;
+                border: 1px solid var(--secondary-dark);
+            }
+
+            button:focus {
+                outline: none;
+            }
+            p {
+                font-size: 18px;
+                line-height: 40px;
+            }
+        }
+    }
+}

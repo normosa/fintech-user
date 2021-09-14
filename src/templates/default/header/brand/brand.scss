@@ -1,0 +1,32 @@
+header {
+  .brand {
+    height: 70px;
+    padding: 5px 5px 5px 20px;
+    box-sizing: border-box;
+    flex-basis: 0px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+
+    img {
+      display: block;
+      height: 55px;
+    }
+    .toggler {
+      width: 25px;
+      padding: 10px;
+      display: flex;
+      align-self: center;
+      flex-direction: column;
+      cursor: pointer;
+
+      span {
+        height: 1px;
+        display: block;
+        background-color: #020E23;
+        margin: 4px 0;
+      }
+    }
+  }
+}

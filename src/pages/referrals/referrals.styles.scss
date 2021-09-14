@@ -1,0 +1,65 @@
+.referrals {
+    overflow: scroll;
+    .header {
+        padding: 15px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        h4 {
+            font-family: "DM Sans Bold";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 28px;
+            color: #020e23;
+        }
+        .buttons {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            button,
+            a {
+                min-width: 100px;
+                margin: 0 5px;
+                height: 35px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                box-sizing: border-box;
+                img {
+                    margin-right: 10px;
+                }
+                cursor: pointer;
+            }
+            button:focus,
+            a:focus {
+                outline: none;
+            }
+            a {
+                background-color: var(--secondary-dark);
+            }
+        }
+    }
+    tr:hover {
+        background-color: #f4f4f4;
+    }
+    td {
+        span {
+            font-weight: 400;
+            font-family: "DM Sans Regular";
+            letter-spacing: .4px;
+        }
+        span.active {
+            color: #00b127;
+        }
+        span.pending {
+            color: #5a4d4d;
+        }
+        span.inactive {
+            color: #d90000;
+        }
+    }
+}
