@@ -5,11 +5,11 @@ import { withRouter } from 'react-router-dom'
 class RequireActivation extends React.Component {
 
     componentDidMount() {
-        this.props.auth.status !== 2 && this.props.history.push('/activate')
+        this.props.auth.status !== 1 && this.props.history.push('/activate')
     }
 
     render() {
-        if (this.props.auth.status !== 2) {
+        if (this.props.auth.status !== 1) {
             return (
                 <>
                 </>
