@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import Dialog from '../../components/dialog/dialog.component'
 import Loading from '../../components/loading/loading.component'
 import ProgressBar from '../../components/progressbar/progressbar.component'
+import TransferCodeForm from './components/forms/transfercode/transfercode.component'
 
 class Transfer extends React.Component {
     constructor(props) {
@@ -25,7 +26,10 @@ class Transfer extends React.Component {
         let interval = setInterval(() => {
             if (this.state.progress === percent) {
                 clearInterval(interval)
-                this.onCountDownCompleted()
+                interval = setInterval(() => {
+                    clearInterval(interval)
+                    this.onCountDownCompleted()
+                }, 3000)
             }
             else {
                 this.setState({
@@ -33,7 +37,7 @@ class Transfer extends React.Component {
                     progress: this.state.progress + 1
                 })
             }
-        }, 300);
+        }, 200);
     }
 
     onCountDownCompleted = () => {
@@ -42,11 +46,20 @@ class Transfer extends React.Component {
             flag.type = "success"
             flag.text = "#"+ this.state.transferResult.ref + " Transaction Completed"
         }
+        else{
+            flag.type = "error"
+            flag.text = this.state.transferResult.transferMessage
+        }
         this.setState({
             ...this.state,
             transferring: false,
             flag: flag
         })
+    }
+
+    onTransferCodeReceived = e => {
+        e.preventDefault()
+        this.service.clearCode()
     }
 
     getTypeLabel = () => {
@@ -67,6 +80,7 @@ class Transfer extends React.Component {
     render() {
         return (
             <div id="transfer" className="transfer">
+                {typeof this.state.transferResult !== 'undefined' && this.state.transferResult.status !== 1 && <Dialog><TransferCodeForm {...this.state} onChange={FormHelper(this).onChange} onSubmit={this.onTransferCodeReceived}/></Dialog>}
                 {this.state.saving && <Dialog><Loading /></Dialog>}
                 {this.state.transferring && <Dialog><ProgressBar progress={this.state.progress} /></Dialog>}
                 <div className="header">

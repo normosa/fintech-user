@@ -11,6 +11,7 @@ const getDefaultState = () => {
         amount: "",
         bank: "",
         correspondingBank: "",
+        transferCode: "",
         sortCode: "",
         address: "",
         errors: {},
@@ -41,7 +42,7 @@ const transfer = instance => {
 const handleTransferResponse = (instance, response) => {
     switch(response.data.status){
         case 200:
-            let transferResult = response.data.data.transferResult
+            let transferResult = response.data.data
             instance.setState({
                 ...instance.state,
                 saving: false,
@@ -53,9 +54,46 @@ const handleTransferResponse = (instance, response) => {
                     instance.startCountDown(100)
                 }
                 else{
-                    instance.startCountDown(transferResult.progress)
+                    instance.startCountDown(Number(transferResult.progress))
                 }
             })
+            break;
+        case 403:
+            instance.props.history.push('/auth/login')
+            break;
+        default:
+            instance.setState({
+                ...instance.state,
+                saving: false,
+                flag: {
+                    type: "error",
+                    text: response.data.message
+                }
+            })
+    }
+}
+
+const clearCode = instance => {
+    let currentState = instance.state
+    //delete currentState.transferResult
+    instance.setState({ ...currentState, saving: true })
+    axios({
+        method: 'post',
+        url: API_ENDPOINT + "/accounts/clear/code",
+        headers : {
+            "Authorization": instance.props.auth.authorization
+        },
+        data: {
+            transferCode: instance.state.transferCode
+        }
+    }).then(response => handleClearCodeResponse(instance, response))
+    .catch(error => alert(error))
+}
+
+const handleClearCodeResponse = (instance, response) => {
+    switch(response.data.status){
+        case 200:
+            transfer(instance)
             break;
         case 403:
             instance.props.history.push('/auth/login')
@@ -75,7 +113,8 @@ const handleTransferResponse = (instance, response) => {
 const Service = instance => {
     return {
         getDefaultState: getDefaultState,
-        transfer: () => transfer(instance)
+        transfer: () => transfer(instance),
+        clearCode: () => clearCode(instance)
     }
 }
 
