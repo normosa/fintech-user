@@ -75,7 +75,6 @@ const handleTransferResponse = (instance, response) => {
 
 const clearCode = instance => {
     let currentState = instance.state
-    //delete currentState.transferResult
     instance.setState({ ...currentState, saving: true })
     axios({
         method: 'post',
