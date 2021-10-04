@@ -74,7 +74,7 @@ class Transactions extends React.Component {
                                     <td>{transaction.description}</td>
                                     <td><NumberFormat value={transaction.credit} displayType={'text'} thousandSeparator={true} renderText={value => value} /></td>
                                     <td><NumberFormat value={transaction.debit} displayType={'text'} thousandSeparator={true} renderText={value => value} /></td>
-                                    <td>{new Date(transaction.createdAt).toString('dd MMM, yyyy')}</td>
+                                    <td>{new Date(transaction.created*1000).toString('dd MMM, yyyy')}</td>
                                 </tr>)
                             }
                         </tbody>

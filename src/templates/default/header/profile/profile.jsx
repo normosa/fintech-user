@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import './profile.scss'
 import iconArrowDownDark from '../../../../assets/icons/arrow-down-dark.svg'
-import iconAvatar from '../../../../assets/icons/avatar.svg'
 import iconNotification from '../../../../assets/icons/notification.svg'
 import store from '../../../../redux/stores/store'
+import { ASSET_ENDPOINT } from '../../../../config'
 
 class Profile extends React.Component {
 
@@ -19,7 +19,7 @@ class Profile extends React.Component {
 
     componentDidMount = () => {
         this.unsubscribe = store.subscribe(() => {
-            if(this.state.showMenu !== store.getState().menu.showMenu){
+            if (this.state.showMenu !== store.getState().menu.showMenu) {
                 this.setState({
                     ...this.state,
                     showMenu: store.getState().menu.showMenu
@@ -32,7 +32,7 @@ class Profile extends React.Component {
         this.unsubscribe()
     }
 
-    getImage = () => iconAvatar
+    getImage = () => ASSET_ENDPOINT + '/img/' + this.props.auth.photo
 
     showDropdown = () => this.setState({
         ...this.state,
@@ -51,11 +51,11 @@ class Profile extends React.Component {
 
     render() {
         return (
-            <div className={this.state.showMenu?'profile hide':'profile show'} onMouseLeave={this.hideDropdown}>
+            <div className={this.state.showMenu ? 'profile hide' : 'profile show'} onMouseLeave={this.hideDropdown}>
                 <div onClick={this.showDropdown}>
                     <img src={iconNotification} alt="" />
                     <img src={this.getImage()} alt="" />
-                    <strong>{this.props.auth.firstname}</strong>
+                    <strong>{this.props.auth.firstname} {this.props.auth.lastname}</strong>
                     <img className="arrow-down" src={iconArrowDownDark} alt="" />
                 </div>
                 <ul className={this.state.show ? 'show' : 'hide'}>

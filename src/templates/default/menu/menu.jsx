@@ -1,17 +1,18 @@
 import React from 'react'
-import { connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import store from '../../../redux/stores/store'
 import './menu.scss'
 import Item from './item/item.component'
 import { MENU_ACTIVE_ITEM, MENU_TOGGLE } from '../../../redux/reducers/menu/action-types'
 import iconLogo from '../../../assets/images/logo.png'
+import { ASSET_ENDPOINT } from '../../../config'
 
 class Menu extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state = {...props.menu}
+        this.state = { ...props.menu }
     }
 
     componentDidMount = () => {
@@ -42,7 +43,7 @@ class Menu extends React.Component {
     onToggleMenu = () => {
         this.props.dispatch({
             type: MENU_TOGGLE,
-            payload:{}
+            payload: {}
         })
     }
 
@@ -50,18 +51,22 @@ class Menu extends React.Component {
         this.unsubscribe()
     }
 
-    render(){
-        return(
-            <div className={this.state.showMenu? 'menu active': 'menu'}>
+    render() {
+        return (
+            <div className={this.state.showMenu ? 'menu active' : 'menu'}>
                 <h1>
-                    <img src={iconLogo} alt=""/>
+                    <img src={iconLogo} alt="" />
                     {window.sitename}
                 </h1>
                 <div className="space"></div>
+                <div className="photo">
+                    <img alt="" src={ASSET_ENDPOINT + '/img/' + this.props.auth.photo} />
+                </div>
+                <h4>Navigation</h4>
                 <ul>
                     {
                         this.props.menu.items.map(
-                            (menu, key) => <Item key={key} active={(this.state.activeItem === key)} onClick={() => this.onItemClick(key)} onSubItemClick={this.onToggleMenu} {...menu}/>
+                            (menu, key) => <Item key={key} active={(this.state.activeItem === key)} onClick={() => this.onItemClick(key)} onSubItemClick={this.onToggleMenu} {...menu} />
                         )
                     }
                 </ul>
@@ -72,7 +77,8 @@ class Menu extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        menu: state.menu
+        menu: state.menu,
+        auth: state.auth
     }
 }
 

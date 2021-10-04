@@ -23,7 +23,28 @@
       }
     }
     .space {
-      height: 80px;
+      height: 40px;
+    }
+    h4 {
+      color: #fff;
+      padding: 10px 0 10px 30px;
+      font-weight: 500;
+      font-family: "DM Sans Bold";
+    }
+
+    .photo {
+      width: 164px;
+      margin: 20px auto;
+      border-radius: 81px;
+      cursor: pointer;
+      position: relative;
+
+      img {
+        width: 160px;
+        height: 160px;
+        border: 2px groove #fff;
+        border-radius: 80px;
+      }
     }
     ul {
       list-style: none;
