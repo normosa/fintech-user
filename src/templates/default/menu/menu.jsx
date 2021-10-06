@@ -56,11 +56,10 @@ class Menu extends React.Component {
             <div className={this.state.showMenu ? 'menu active' : 'menu'}>
                 <h1>
                     <img src={iconLogo} alt="" />
-                    {window.sitename}
                 </h1>
                 <div className="space"></div>
                 <div className="photo">
-                    <img alt="" src={ASSET_ENDPOINT + '/img/' + this.props.auth.photo} />
+                    <img alt="" src={ASSET_ENDPOINT + '/photos/' + this.props.auth.photo} />
                 </div>
                 <h4>Navigation</h4>
                 <ul>

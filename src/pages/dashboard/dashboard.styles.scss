@@ -1,71 +1,82 @@
 .dashboard {
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-
-    .card {
-      background: #fff;
-      padding: 0;
-      border-radius: 5px;
-      color: #37474f;
-      transition: all 300ms ease-in-out;
-      cursor: pointer;
-      height: 100px;
-      box-sizing: border-box;
-      display: grid;
-      grid-template-columns: 80px 1fr;
-
-      p {
-        line-height: 100px;
-        text-align: center;
-        font-weight: 500;
-      }
-      strong {
-        font-weight: 500;
-        display: block;
-      }
-
-      > div:first-child > img {
-        width: 32px;
-        height: 32px;
-        margin: 34px auto;
-        display: block;
-      }
-
-      > div:first-child {
-        border-radius: 5px 0 0 5px;
-      }
-
-      > div:last-child {
-        padding: 20px 15px;
-      }
-
-      &.program > div:first-child {
-        background-color: #4e73df;
-      }
-      &.applications > div:first-child {
-        background-color: #1cc88a;
-      }
-      &.points > div:first-child {
-        background-color: #d98d37;
-      }
-      &.payments > div:first-child {
-        background-color: #e74a3b;
-      }
-      &.membership > div:first-child {
-        background-color: #36b9cc;
-      }
-      &.videos > div:first-child {
-        background-color: #f6c23e;
-      }
+  .rates {
+    background-color: rgb(0, 16, 51); 
+    overflow:hidden; 
+    box-sizing: border-box; 
+    text-align: right; 
+    line-height:14px; 
+    font-size: 12px; 
+    font-feature-settings: normal; 
+    text-size-adjust: 100%; 
+    box-shadow: inset 0 -20px 0 0 #262B38;
+    padding:1px;
+    padding: 0px; 
+    margin: 20px 0; 
+    width: 100%;
+    > div {
+      height:40px; 
+      padding:0px; 
+      margin:0px; 
+      width: 100%;
+    }
+    iframe {
+      border:0;
+      margin:0;
+      padding:0;
     }
   }
+  .ads {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+    img {
+      border-radius: 10px;
+    }
+  }
+  .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 
-  @media (min-width: 1000px) {
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .card {
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #4e73df;
+      color: #fff;
+      cursor: pointer;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      border-radius: 5px;
+      align-items: center;
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+
+      h4 {
+        text-align: center;
+        font-weight: 600;
+        width: 170px;
+      }
+
+      &.bills {
+        background-color: #1cc88a;
+      }
+      &.loan {
+        background-color: #d98d37;
+      }
+      &.history {
+        background-color: #e74a3b;
+      }
+      &.password {
+        background-color: #36b9cc;
+      }
+      &.profile {
+        background-color: #f6c23e;
+      }
     }
   }
 }

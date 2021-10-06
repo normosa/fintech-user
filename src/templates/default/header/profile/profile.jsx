@@ -32,7 +32,7 @@ class Profile extends React.Component {
         this.unsubscribe()
     }
 
-    getImage = () => ASSET_ENDPOINT + '/img/' + this.props.auth.photo
+    getImage = () => ASSET_ENDPOINT + '/photos/' + this.props.auth.photo
 
     showDropdown = () => this.setState({
         ...this.state,
