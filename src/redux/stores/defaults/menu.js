@@ -48,20 +48,6 @@ const DefaultStore = {
             ]
         },
         {
-            text: "Cardless",
-            icon: iconPayer,
-            subItems: [
-                {
-                    url: "/transactions/deposit",
-                    text: "Generate Paycode"
-                },
-                {
-                    url: "/transactions/withdraw",
-                    text: "History"
-                }
-            ]
-        },
-        {
             text: "Loans",
             icon: iconPayer,
             subItems: [
@@ -106,42 +92,6 @@ const DefaultStore = {
                 {
                     url: "/transactions/withdraw",
                     text: "Flight Booking"
-                }
-            ]
-        },
-        {
-            text: "Info Center",
-            icon: iconPayer,
-            subItems: [
-                {
-                    url: "/transactions/deposit",
-                    text: "Quick Quide"
-                },
-                {
-                    url: "/transactions/withdraw",
-                    text: "FAQ"
-                },
-                {
-                    url: "/transactions/withdraw",
-                    text: "Contact Info"
-                },
-                {
-                    url: "/transactions/withdraw",
-                    text: "Live Chat"
-                }
-            ]
-        },
-        {
-            text: "Self Service",
-            icon: iconPayer,
-            subItems: [
-                {
-                    url: "/transactions/deposit",
-                    text: "Generate Statement"
-                },
-                {
-                    url: "/transactions/withdraw",
-                    text: "Account Officer"
                 }
             ]
         },

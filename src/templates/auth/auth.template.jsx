@@ -1,7 +1,7 @@
 import React from 'react'
 import './auth.styles.scss'
 import '../form.styles.scss'
-import iconLogo from '../../assets/images/logo.png'
+import imageLogo from '../../assets/images/logo2.jpg'
 
 const AuthTemplate = (props) => {
     return (
@@ -9,8 +9,7 @@ const AuthTemplate = (props) => {
             <div>
                 <div className="container">
                     <header>
-                        <img alt="" src={iconLogo} />
-                        <h1>{window.sitename}</h1>
+                        <img alt="" src={imageLogo} />
                     </header>
                     {props.children}
                     <footer>
