@@ -15,12 +15,12 @@ const AccountInfo = props => {
                     <div className="content">
                         <div>
                             <p>Account Balance</p>
-                            <h3><NumberFormat value="123000" displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => value} /></h3>
+                            <h3><NumberFormat value={props.summary.balance} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => value} /></h3>
                         </div>
                         <img alt="" src={iconAvatarGreen} />
                     </div>
                     <div className="footer">
-                        <Link to="/">
+                        <Link to="/transfers/international">
                             <i>Transfer Fund</i>
                             <img alt="" src={iconArrow} />
                         </Link>
@@ -29,13 +29,13 @@ const AccountInfo = props => {
                 <div className="_card red">
                     <div className="content">
                         <div>
-                            <p>Last Transaction</p>
-                            <h3>$0</h3>
+                            <p>All Deposits</p>
+                            <h3><NumberFormat value={props.summary.credit} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => value} /></h3>
                         </div>
                         <img alt="" src={iconAvatarRed} />
                     </div>
                     <div className="footer">
-                        <Link to="/">
+                        <Link to="/transactions/all">
                             <i>Transaction History</i>
                             <img alt="" src={iconArrow} />
                         </Link>
@@ -50,7 +50,7 @@ const AccountInfo = props => {
                         <img alt="" src={iconAvatarYellow} />
                     </div>
                     <div className="footer">
-                        <Link to="/">
+                        <Link to="#">
                             <i>Update Profile</i>
                             <img alt="" src={iconArrow} />
                         </Link>

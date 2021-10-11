@@ -4,44 +4,33 @@ import { API_ENDPOINT } from '../../config'
 const getDefaultState = () => {
     return {
         loading: false,
-        transactions: [],
-        filter: [],
         summary: {
+            credit: 0,
+            debit: 0,
             balance: 0
-        },
-        selectedIndex: -1,
-        currentPage: 1,
-        pageSize: 10,
-        total: 0
+        }
     }
 }
 
-const loadTransactions = instance => {
+const loadSummary = instance => {
     instance.setState({ ...instance.state, loading: true })
     axios({
         method: 'post',
-        url: API_ENDPOINT + "/account/transactions/self",
+        url: API_ENDPOINT + "/account/summary",
         headers : {
             "Authorization": instance.props.auth.authorization
         },
-        data: {
-            offset: (instance.state.currentPage - 1) * instance.state.pageSize,
-            limit: instance.state.pageSize,
-            criteria: instance.state.filter
-        }
-    }).then(response => handleLoadTransactionsResponse(instance, response))
+        data: {}
+    }).then(response => handleLoadSummaryResponse(instance, response))
     .catch(error => alert(error))
 }
 
-const handleLoadTransactionsResponse = (instance, response) => {
+const handleLoadSummaryResponse = (instance, response) => {
     switch(response.data.status){
         case 200:
             instance.setState({
                 ...instance.state,
                 loading: false,
-                selectedIndex: -1,
-                transactions: response.data.data.transactions,
-                total: response.data.data.size,
                 summary: response.data.data.summary
             })
             break;
@@ -55,7 +44,7 @@ const handleLoadTransactionsResponse = (instance, response) => {
 
 const Service = instance => {
     return {
-        loadTransactions: () => loadTransactions(instance),
+        loadSummary: () => loadSummary(instance),
         getDefaultState: () => getDefaultState(instance)
     }
 }

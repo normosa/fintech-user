@@ -1,14 +1,14 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Dialog from '../../components/dialog/dialog.component'
 import Loading from '../../components/loading/loading.component'
 import { connect } from 'react-redux'
-import iconNew from '../../assets/icons/new-light.svg'
 import Filters from './filters.component'
 import Pagination from '../../components/pagination/pagination.component'
 import './transactions.styles.scss'
 import Service from './transactions.service'
 import NumberFormat from 'react-number-format'
+import imageDashbord from '../../assets/icons/dashboard.svg'
 
 class Transactions extends React.Component {
 
@@ -50,10 +50,19 @@ class Transactions extends React.Component {
             <>
                 {this.state.loading && <Dialog><Loading /></Dialog>}
                 <div className="transactions">
+                    <div className="cards">
+                        <div className="card balance">
+                            <img alt="" src={imageDashbord} />
+                            <h4>Balance <NumberFormat value={this.state.summary.balance} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => value} /></h4>
+                        </div>
+                        <div className="card transfer" onClick={() => this.props.history.push("/transfers/international")}>
+                            <img alt="" src={imageDashbord} />
+                            <h4>Transfer Fund</h4>
+                        </div>
+                    </div>
                     <div className="header">
                         <h4>Transactions</h4>
                         <div className="buttons">
-                            <Link className="btn" to="/transactions/all"><img alt="" src={iconNew} />Deposit Fund</Link>
                             <Filters filter={this.state.filter} onSubmit={this.onFilterSubmit} onChange={this.onFilterChange} />
                         </div>
                     </div>
@@ -74,7 +83,7 @@ class Transactions extends React.Component {
                                     <td>{transaction.description}</td>
                                     <td><NumberFormat value={transaction.credit} displayType={'text'} thousandSeparator={true} renderText={value => value} /></td>
                                     <td><NumberFormat value={transaction.debit} displayType={'text'} thousandSeparator={true} renderText={value => value} /></td>
-                                    <td>{new Date(transaction.created*1000).toString('dd MMM, yyyy')}</td>
+                                    <td>{new Date(transaction.created * 1000).toString('dd MMM, yyyy')}</td>
                                 </tr>)
                             }
                         </tbody>
