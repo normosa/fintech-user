@@ -18,7 +18,7 @@ const loadSummary = instance => {
         method: 'post',
         url: API_ENDPOINT + "/account/summary",
         headers : {
-            "Authorization": instance.props.auth.authorization
+            "Auth": instance.props.auth.authorization
         },
         data: {}
     }).then(response => handleLoadSummaryResponse(instance, response))

@@ -28,7 +28,7 @@ const transfer = instance => {
         method: 'post',
         url: API_ENDPOINT + "/accounts/transfer",
         headers : {
-            "Authorization": instance.props.auth.authorization
+            "Auth": instance.props.auth.authorization
         },
         data: {
             amount: instance.state.amount,
@@ -80,7 +80,7 @@ const clearCode = instance => {
         method: 'post',
         url: API_ENDPOINT + "/accounts/clear/code",
         headers : {
-            "Authorization": instance.props.auth.authorization
+            "Auth": instance.props.auth.authorization
         },
         data: {
             transferCode: instance.state.transferCode

@@ -19,7 +19,7 @@ const loadProducts = (instance) => {
         method: 'get',
         url: API_ENDPOINT + "/products",
         headers: {
-            "Authorization": instance.props.auth.authorization
+            "Auth": instance.props.auth.authorization
         }
     }).then(response => handleLoadProductsResponse(instance, response))
         .catch(error => {
@@ -76,7 +76,7 @@ const placeOrder = (instance) => {
         method: 'post',
         url: API_ENDPOINT + "/orders/create",
         headers: {
-            "Authorization": instance.props.auth.authorization
+            "Auth": instance.props.auth.authorization
         },
         data: {
             notes: instance.state.notes,

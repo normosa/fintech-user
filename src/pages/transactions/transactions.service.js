@@ -22,7 +22,7 @@ const loadTransactions = instance => {
         method: 'post',
         url: API_ENDPOINT + "/account/transactions/self",
         headers : {
-            "Authorization": instance.props.auth.authorization
+            "Auth": instance.props.auth.authorization
         },
         data: {
             offset: (instance.state.currentPage - 1) * instance.state.pageSize,
