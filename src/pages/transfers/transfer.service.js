@@ -11,6 +11,8 @@ const getDefaultState = () => {
         amount: "",
         bank: "",
         correspondingBank: "",
+        routeNumber: "",
+        correspondingBankSwiftCode: "",
         transferCode: "",
         sortCode: "",
         address: "",

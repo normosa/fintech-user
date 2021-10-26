@@ -6,6 +6,15 @@ const Form = (props) => {
     return (
         <form>
             <div className="inputs">
+                <div className="row" id="accountName">
+                    <div className="form-label">
+                        <label>Beneficiary's Account Name</label>
+                    </div>
+                    <div className="form-input">
+                        <input type="text" name="accountName" value={props.accountName} onChange={props.onChange} />
+                        <span className="error">{props.errors.accountName}</span>
+                    </div>
+                </div>
                 <div className="row" id="accountNumber">
                     <div className="form-label">
                         <label>Beneficiary's Account Number</label>
@@ -15,13 +24,13 @@ const Form = (props) => {
                         <span className="error">{props.errors.accountNumber}</span>
                     </div>
                 </div>
-                <div className="row" id="accountName">
+                <div className="row" id="routeNumber">
                     <div className="form-label">
-                        <label>Beneficiary's Account Name</label>
+                        <label>ABA Routing Number/IFSC Code</label>
                     </div>
                     <div className="form-input">
-                        <input type="text" name="accountName" value={props.accountName} onChange={props.onChange} />
-                        <span className="error">{props.errors.accountName}</span>
+                        <input type="text" name="routeNumber" value={props.routeNumber} onChange={props.onChange} />
+                        <span className="error">{props.errors.routeNumber}</span>
                     </div>
                 </div>
                 <div className="row" id="amount">
@@ -36,7 +45,7 @@ const Form = (props) => {
                 {
                     !props.match.path.includes("same") && <div className="row" id="bank">
                         <div className="form-label">
-                            <label>Beneficiary's Bank</label>
+                            <label>Beneficiary's Bank Name</label>
                         </div>
                         <div className="form-input">
                             <input type="text" name="bank" value={props.bank} onChange={props.onChange} />
@@ -66,11 +75,20 @@ const Form = (props) => {
                         </div>
                         <div className="row" id="correspondingBank">
                             <div className="form-label">
-                                <label>Corresponding Bank(if any)</label>
+                                <label>Corresponding Bank Name(if any)</label>
                             </div>
                             <div className="form-input">
                                 <input type="text" name="correspondingBank" value={props.correspondingBank} onChange={props.onChange} />
                                 <span className="error">{props.errors.correspondingBank}</span>
+                            </div>
+                        </div>
+                        <div className="row" id="correspondingBankSwiftCode">
+                            <div className="form-label">
+                                <label>Corresponding Bank BIC/Swift/IFSC Code</label>
+                            </div>
+                            <div className="form-input">
+                                <input type="text" name="correspondingBankSwiftCode" value={props.correspondingBankSwiftCode} onChange={props.onChange} />
+                                <span className="error">{props.errors.correspondingBankSwiftCode}</span>
                             </div>
                         </div>
                     </>
