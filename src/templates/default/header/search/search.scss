@@ -5,6 +5,7 @@ header {
       background-color: #fff;
       box-sizing: border-box;
       flex-grow: 1;
+      display: none;
   
       input {
         border: 1px solid #F3F3F3;
@@ -25,6 +26,11 @@ header {
         height: 20px;
         top: 25px;
         right: 30px;
+      }
+    }
+    @media (min-width: 700px) {
+      .search {
+        display: block;
       }
     }
   }

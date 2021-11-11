@@ -33,6 +33,17 @@ const Form = (props) => {
                         <span className="error">{props.errors.routeNumber}</span>
                     </div>
                 </div>
+                {
+                    props.match.path.includes('international') && <div className="row" id="sortCode">
+                        <div className="form-label">
+                            <label>BIC/Swift Code/IBAN Number</label>
+                        </div>
+                        <div className="form-input">
+                            <input type="text" name="sortCode" value={props.sortCode} onChange={props.onChange} />
+                            <span className="error">{props.errors.sortCode}</span>
+                        </div>
+                    </div>
+                }
                 <div className="row" id="amount">
                     <div className="form-label">
                         <label>Amount($)</label>
@@ -64,15 +75,6 @@ const Form = (props) => {
                                 <span className="error">{props.errors.address}</span>
                             </div>
                         </div>
-                        <div className="row" id="sortCode">
-                            <div className="form-label">
-                                <label>BIC/ROUTING NO</label>
-                            </div>
-                            <div className="form-input">
-                                <input type="text" name="sortCode" value={props.sortCode} onChange={props.onChange} />
-                                <span className="error">{props.errors.sortCode}</span>
-                            </div>
-                        </div>
                         <div className="row" id="correspondingBank">
                             <div className="form-label">
                                 <label>Corresponding Bank Name(if any)</label>
@@ -84,7 +86,7 @@ const Form = (props) => {
                         </div>
                         <div className="row" id="correspondingBankSwiftCode">
                             <div className="form-label">
-                                <label>Corresponding Bank BIC/Swift/IFSC Code</label>
+                                <label>Corresponding Bank BIC/Swift Code/IBAN Number</label>
                             </div>
                             <div className="form-input">
                                 <input type="text" name="correspondingBankSwiftCode" value={props.correspondingBankSwiftCode} onChange={props.onChange} />

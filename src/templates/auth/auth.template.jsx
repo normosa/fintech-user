@@ -1,7 +1,7 @@
 import React from 'react'
 import './auth.styles.scss'
 import '../form.styles.scss'
-import imageLogo from '../../assets/images/logo2.jpg'
+import imageLogo from '../../assets/icons/logo2.svg'
 
 const AuthTemplate = (props) => {
     return (

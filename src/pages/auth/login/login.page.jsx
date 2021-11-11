@@ -30,10 +30,6 @@ class Login extends React.Component {
                     {this.state.flag.text}
                 </div>
                 <LoginForm onSubmit={this.onSubmit} onChange={FormHelper(this).onChange} onRememberMeChange={this.onRememberMeChange} {...this.state} />
-                <div className="signup">
-                    <p>or</p>
-                    <button onClick={() => this.props.history.push('/auth/register')}>Register</button>
-                </div>
             </div>
         )
     }

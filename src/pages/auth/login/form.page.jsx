@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import Checkbox from '../../../components/inputs/checkbox/checkbox.component'
 
 const LoginForm = (props) => {
     return (
@@ -16,7 +15,6 @@ const LoginForm = (props) => {
                 <span className="error">{props.errors.password}</span>
             </div>
             <div className="extras">
-                <Checkbox name="rememberMe" text="Remember Me" checked={props.rememberMe} onChange={props.onRememberMeChange} />
                 <Link to="/auth/reset">Reset password</Link>
             </div>
             <div className="actions">

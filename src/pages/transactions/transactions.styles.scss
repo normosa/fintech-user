@@ -2,10 +2,11 @@
     overflow: scroll;
     .cards {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
 
         .card {
             padding: 20px;
+            margin: 10px;
             border-radius: 5px;
             background-color: #4e73df;
             color: #fff;
@@ -15,7 +16,6 @@
             flex-direction: row;
             border-radius: 5px;
             align-items: center;
-            margin-right: 20px;
 
             img {
                 width: 32px;
@@ -98,4 +98,12 @@
             color: #d90000;
         }
     }
+    @media (min-width: 700px) {
+        .cards {
+            flex-direction: row;
+          .card {
+            margin-right: 20px;
+          }
+        }
+      }
 }

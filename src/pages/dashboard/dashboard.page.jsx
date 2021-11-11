@@ -5,8 +5,6 @@ import imageDashbord from '../../assets/icons/dashboard.svg'
 import imageOrders from '../../assets/icons/payer.svg'
 import imageSecurity from '../../assets/icons/security.svg'
 import imageSettings from '../../assets/icons/config.svg'
-import imageCards from '../../assets/images/cards.jpg'
-import imageInvest from '../../assets/images/invest.jpg'
 import { withRouter } from 'react-router-dom'
 import AccountInfo from './account-info/acount-info.component'
 import Service from './dashboard.service'
@@ -55,10 +53,6 @@ class Dashboard extends React.Component {
                         <img alt="" src={imageSecurity} />
                         <h4>Change Password</h4>
                     </div>
-                </div>
-                <div className="ads">
-                    <img alt="" src={imageCards} />
-                    <img alt="" src={imageInvest} />
                 </div>
             </div>
         )
