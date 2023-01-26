@@ -8,6 +8,7 @@ import './transactions.styles.scss'
 import Service from './transactions.service'
 import NumberFormat from 'react-number-format'
 import imageDashbord from '../../assets/icons/dashboard.svg'
+import { CURRENCY } from '../../config'
 
 class Transactions extends React.Component {
 
@@ -49,16 +50,19 @@ class Transactions extends React.Component {
             <>
                 {this.state.loading && <Dialog><Loading /></Dialog>}
                 <div className="transactions">
-                    <div className="cards">
-                        <div className="card balance">
-                            <img alt="" src={imageDashbord} />
-                            <h4>Balance <NumberFormat value={this.state.summary.balance} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => value} /></h4>
+                    {
+                        !this.props.embedded &&
+                        <div className="cards">
+                            <div className="card balance">
+                                <img alt="" src={imageDashbord} />
+                                <h4>Balance <NumberFormat value={this.state.summary.balance} displayType={'text'} thousandSeparator={true} prefix={'$'} renderText={value => value} /></h4>
+                            </div>
+                            <div className="card transfer" onClick={() => this.props.history.push("/transfers/international")}>
+                                <img alt="" src={imageDashbord} />
+                                <h4>Transfer Fund</h4>
+                            </div>
                         </div>
-                        <div className="card transfer" onClick={() => this.props.history.push("/transfers/international")}>
-                            <img alt="" src={imageDashbord} />
-                            <h4>Transfer Fund</h4>
-                        </div>
-                    </div>
+                    }
                     <div className="header">
                         <h4>Transactions</h4>
                     </div>
@@ -77,15 +81,15 @@ class Transactions extends React.Component {
                                 this.state.transactions.map((transaction, key) => <tr key={key}>
                                     <td>{transaction.ref}</td>
                                     <td>{transaction.description}</td>
-                                    <td><NumberFormat value={transaction.credit} displayType={'text'} thousandSeparator={true} renderText={value => value} /></td>
-                                    <td><NumberFormat value={transaction.debit} displayType={'text'} thousandSeparator={true} renderText={value => value} /></td>
+                                    <td><NumberFormat value={transaction.credit} displayType={'text'} thousandSeparator={true} renderText={value => <p>{transaction.credit > 0 && CURRENCY}{value}</p>} /></td>
+                                    <td><NumberFormat value={transaction.debit} displayType={'text'} thousandSeparator={true} renderText={value => <p>{transaction.debit > 0 && CURRENCY}{value}</p>} /></td>
                                     <td>{new Date(transaction.created * 1000).toString('dd MMM, yyyy HH:mm:ss')}</td>
                                 </tr>)
                             }
                         </tbody>
                     </table>
                     {
-                        this.state.total > 0 && <Pagination totalItemsCount={this.state.total} currentIndex={this.state.currentPage} itemsPerPage={this.state.pageSize} onChange={this.onPageChange} />
+                        !this.props.embedded && this.state.total > 0 && <Pagination totalItemsCount={this.state.total} currentIndex={this.state.currentPage} itemsPerPage={this.state.pageSize} onChange={this.onPageChange} />
                     }
                 </div>
             </>

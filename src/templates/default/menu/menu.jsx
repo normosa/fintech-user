@@ -6,7 +6,9 @@ import './menu.scss'
 import Item from './item/item.component'
 import { MENU_ACTIVE_ITEM, MENU_TOGGLE } from '../../../redux/reducers/menu/action-types'
 import iconLogo from '../../../assets/images/logo.png'
-import { ASSET_ENDPOINT } from '../../../config'
+import iconEmail from '../../../assets/images/email.png'
+import iconPhone from '../../../assets/images/phone.png'
+import { ASSET_ENDPOINT, EMAIL, PHONE } from '../../../config'
 
 class Menu extends React.Component {
 
@@ -69,6 +71,17 @@ class Menu extends React.Component {
                         )
                     }
                 </ul>
+                <h4>Contact</h4>
+                <div className="contact">
+                    <li>
+                        <img src={iconEmail} alt=""/>
+                        <a href={"mailto:" + EMAIL}>{EMAIL}</a>
+                    </li>
+                    <li>
+                    <img src={iconPhone} alt=""/>
+                        <a href={"tel:+" + PHONE}>{PHONE}</a>
+                    </li>
+                </div>
             </div>
         )
     }

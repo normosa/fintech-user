@@ -46,6 +46,22 @@
         border-radius: 80px;
       }
     }
+    .contact {
+      padding: 10px 20px;
+      li {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+        align-items: center;
+        img {
+          margin-right: 8px;
+          height: 19px;
+        }
+        a {
+          color: #fff;
+        }
+      }
+    }
     ul {
       list-style: none;
       padding: 0;

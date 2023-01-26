@@ -9,6 +9,7 @@ import Dialog from '../../components/dialog/dialog.component'
 import Loading from '../../components/loading/loading.component'
 import ProgressBar from '../../components/progressbar/progressbar.component'
 import TransferCodeForm from './components/forms/transfercode/transfercode.component'
+import TransferSuccess from './components/transfer-success/transfer-success.component'
 
 class Transfer extends React.Component {
     constructor(props) {
@@ -41,20 +42,30 @@ class Transfer extends React.Component {
     }
 
     onCountDownCompleted = () => {
-        let flag = {}
-        if(this.state.transferResult.status === 1){
-            flag.type = "success"
-            flag.text = "#"+ this.state.transferResult.ref + " Transaction Completed"
+        if (this.state.transferResult.status === 1) {
+            this.setState({
+                ...this.state,
+                transferring: false,
+                transferSuccess: true,
+                transferDesc: this.state.transferResult.desc,
+                flag: {
+                    type: "success",
+                    text: "#" + this.state.transferResult.ref + " Transaction Completed"
+                }
+            })
         }
-        else{
-            flag.type = "error"
-            flag.text = this.state.transferResult.transferMessage
+        else {
+            this.setState({
+                ...this.state,
+                transferring: false,
+                transferDesc: "",
+                transferSuccess: false,
+                flag: {
+                    type: "error",
+                    text: this.state.transferResult.transferMessage
+                }
+            })
         }
-        this.setState({
-            ...this.state,
-            transferring: false,
-            flag: flag
-        })
     }
 
     onTransferCodeReceived = e => {
@@ -77,11 +88,14 @@ class Transfer extends React.Component {
         }
     }
 
+    onTransferSuccessClose = () => this.props.history.push('/transactions/all')
+
     render() {
         return (
             <div id="transfer" className="transfer">
-                {typeof this.state.transferResult !== 'undefined' && this.state.transferResult.status !== 1 && <Dialog><TransferCodeForm {...this.state} onChange={FormHelper(this).onChange} onSubmit={this.onTransferCodeReceived}/></Dialog>}
+                {typeof this.state.transferResult !== 'undefined' && this.state.transferResult.status !== 1 && <Dialog><TransferCodeForm {...this.state} onChange={FormHelper(this).onChange} onSubmit={this.onTransferCodeReceived} /></Dialog>}
                 {this.state.saving && <Dialog><Loading /></Dialog>}
+                {this.state.transferSuccess && <Dialog><TransferSuccess onClose={this.onTransferSuccessClose} desc={this.state.transferDesc} /></Dialog>}
                 {this.state.transferring && <Dialog><ProgressBar progress={this.state.progress} /></Dialog>}
                 <div className="header">
                     <h4>{this.getTypeLabel()} Bank Transfer</h4>

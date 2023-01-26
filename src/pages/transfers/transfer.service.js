@@ -4,6 +4,8 @@ import { API_ENDPOINT } from '../../config'
 const getDefaultState = () => {
     return {
         saving: false,
+        transferSuccess: false,
+        transferDesc: "",
         transferring: false,
         progress: 0,
         accountNumber: "",

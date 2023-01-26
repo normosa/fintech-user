@@ -10,6 +10,7 @@ import AccountInfo from './account-info/acount-info.component'
 import Service from './dashboard.service'
 import Dialog from '../../components/dialog/dialog.component'
 import Loading from '../../components/loading/loading.component'
+import Transactions from '../transactions/transactions.page'
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -54,6 +55,7 @@ class Dashboard extends React.Component {
                         <h4>Change Password</h4>
                     </div>
                 </div>
+                <Transactions embedded={true}/>
             </div>
         )
     }
