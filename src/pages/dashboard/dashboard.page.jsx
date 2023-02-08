@@ -34,23 +34,23 @@ class Dashboard extends React.Component {
                         <img alt="" src={imageDashbord} />
                         <h4>Transfer Fund</h4>
                     </div>
-                    <div className="card history" onClick={() => this.props.history.push("/transactions/all")}>
+                    <div className="card" onClick={() => this.props.history.push("/transactions/all")}>
                         <img alt="" src={imageDashbord} />
                         <h4>Transaction History</h4>
                     </div>
-                    <div className="card loan">
+                    <div className="card">
                         <img alt="" src={imageOrders} />
                         <h4>Loan Request</h4>
                     </div>
-                    <div className="card bills">
+                    <div className="card">
                         <img alt="" src={imageDashbord} />
                         <h4>Pay Bills</h4>
                     </div>
-                    <div className="card profile">
+                    <div className="card">
                         <img alt="" src={imageSettings} />
                         <h4>Update Profile</h4>
                     </div>
-                    <div className="card password">
+                    <div className="card">
                         <img alt="" src={imageSecurity} />
                         <h4>Change Password</h4>
                     </div>

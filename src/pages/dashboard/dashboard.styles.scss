@@ -42,8 +42,8 @@
     .card {
       padding: 20px;
       border-radius: 5px;
-      background-color: #4e73df;
-      color: #fff;
+      background-color: #C8D6ED;
+      color: #2F4F83;
       cursor: pointer;
       box-sizing: border-box;
       display: flex;
@@ -63,21 +63,6 @@
         width: 170px;
       }
 
-      &.bills {
-        background-color: #1cc88a;
-      }
-      &.loan {
-        background-color: #d98d37;
-      }
-      &.history {
-        background-color: #e74a3b;
-      }
-      &.password {
-        background-color: #36b9cc;
-      }
-      &.profile {
-        background-color: #f6c23e;
-      }
     }
   }
   @media (min-width: 700px) {
