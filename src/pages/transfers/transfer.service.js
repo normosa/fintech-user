@@ -5,6 +5,7 @@ const getDefaultState = () => {
     return {
         saving: false,
         transferSuccess: false,
+        showTransferConfirmation: false,
         transferDesc: "",
         transferring: false,
         progress: 0,
@@ -27,11 +28,15 @@ const getDefaultState = () => {
 }
 
 const transfer = instance => {
-    instance.setState({ ...instance.state, saving: true })
+    instance.setState({
+        ...instance.state,
+        showTransferConfirmation: false,
+        saving: true
+    })
     axios({
         method: 'post',
         url: API_ENDPOINT + "/accounts/transfer",
-        headers : {
+        headers: {
             "Auth": instance.props.auth.authorization
         },
         data: {
@@ -40,11 +45,11 @@ const transfer = instance => {
             accountNumber: instance.state.accountNumber
         }
     }).then(response => handleTransferResponse(instance, response))
-    .catch(error => alert(error))
+        .catch(error => alert(error))
 }
 
 const handleTransferResponse = (instance, response) => {
-    switch(response.data.status){
+    switch (response.data.status) {
         case 200:
             let transferResult = response.data.data
             instance.setState({
@@ -54,10 +59,10 @@ const handleTransferResponse = (instance, response) => {
                 progress: 0,
                 transferResult: transferResult
             }, () => {
-                if(transferResult.status === 1){
+                if (transferResult.status === 1) {
                     instance.startCountDown(100)
                 }
-                else{
+                else {
                     instance.startCountDown(Number(transferResult.progress))
                 }
             })
@@ -83,18 +88,18 @@ const clearCode = instance => {
     axios({
         method: 'post',
         url: API_ENDPOINT + "/accounts/clear/code",
-        headers : {
+        headers: {
             "Auth": instance.props.auth.authorization
         },
         data: {
             transferCode: instance.state.transferCode
         }
     }).then(response => handleClearCodeResponse(instance, response))
-    .catch(error => alert(error))
+        .catch(error => alert(error))
 }
 
 const handleClearCodeResponse = (instance, response) => {
-    switch(response.data.status){
+    switch (response.data.status) {
         case 200:
             transfer(instance)
             break;

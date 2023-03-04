@@ -10,6 +10,7 @@ import Loading from '../../components/loading/loading.component'
 import ProgressBar from '../../components/progressbar/progressbar.component'
 import TransferCodeForm from './components/forms/transfercode/transfercode.component'
 import TransferSuccess from './components/transfer-success/transfer-success.component'
+import TransferConfirmation from './components/transfer-confirmation/transfer-confirmation.component'
 
 class Transfer extends React.Component {
     constructor(props) {
@@ -20,7 +21,10 @@ class Transfer extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault()
-        this.service.transfer()
+        this.setState({
+            ...this.state,
+            showTransferConfirmation: true
+        })
     }
 
     startCountDown = percent => {
@@ -97,6 +101,7 @@ class Transfer extends React.Component {
                 {this.state.saving && <Dialog><Loading /></Dialog>}
                 {this.state.transferSuccess && <Dialog><TransferSuccess onClose={this.onTransferSuccessClose} desc={this.state.transferDesc} /></Dialog>}
                 {this.state.transferring && <Dialog><ProgressBar progress={this.state.progress} /></Dialog>}
+                {this.state.showTransferConfirmation && <Dialog><TransferConfirmation onProceed={this.service.transfer} accountName={this.state.accountName} accountNumber={this.state.accountNumber} amount={this.state.amount} onClose={() => this.setState({...this.state, showTransferConfirmation: false})}/></Dialog>}
                 <div className="header">
                     <h4>{this.getTypeLabel()} Bank Transfer</h4>
                 </div>
