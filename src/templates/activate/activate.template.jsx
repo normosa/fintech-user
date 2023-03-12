@@ -1,7 +1,7 @@
 import React from 'react'
 import './activate.styles.scss'
 import '../form.styles.scss'
-import iconLogo from '../../assets/images/logo.png'
+import iconLogo from '../../assets/images/logo.jpg'
 
 const ActivateTemplate = (props) => {
     return (
@@ -14,7 +14,7 @@ const ActivateTemplate = (props) => {
                     </header>
                     {props.children}
                     <footer>
-                        <p>© 2021 {window.sitename}. All rights reserved.</p>
+                        <p>© 2023 {window.sitename}. All rights reserved.</p>
                     </footer>
                 </div>
             </div>
