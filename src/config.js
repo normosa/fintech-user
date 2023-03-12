@@ -1,4 +1,4 @@
-export const DEBUG = true
+export const DEBUG = false
 export const CURRENCY = "$"
 export const PHONE = "234901231234"
 export const EMAIL = "info@example.com"

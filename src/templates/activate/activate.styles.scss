@@ -77,13 +77,14 @@ section.activate {
         left: 0;
         bottom: 0;
         > div {
-            flex-basis: 50%;
+            width: 700px;
             height: inherit;
         }
 
         > div:last-child {
             background: url(../../assets/images/auth-bg.jpg) no-repeat;
             background-size: cover;
+            flex-grow: 1;
         }
     }
 }
